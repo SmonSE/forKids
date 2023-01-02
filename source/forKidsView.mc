@@ -8,15 +8,25 @@ using Toybox.System as Sys;
 
 class forKidsView extends WatchUi.DataField {
 
-    var myBitmap;
+    var myBitmap0;
+    var myBitmap1;
+    var myBitmap2;
+    var myBitmap3;
     var img = false;
 
     hidden var mValue as Numeric;
 
+    //getActivityInfo
+    var actInfo = Activity.getActivityInfo();
+    var speedRounded;
+
     function initialize() {
         DataField.initialize();
         mValue = 0.0f;
-        myBitmap = WatchUi.loadResource(Rez.Drawables.rabbit);
+        myBitmap0 = WatchUi.loadResource(Rez.Drawables.snail);
+        myBitmap1 = WatchUi.loadResource(Rez.Drawables.turtle);
+        myBitmap2 = WatchUi.loadResource(Rez.Drawables.rabbit);
+        myBitmap3 = WatchUi.loadResource(Rez.Drawables.rocket);
     }
 
     // Set your layout here. Anytime the size of obscurity of
@@ -80,17 +90,40 @@ class forKidsView extends WatchUi.DataField {
         } else {
             value.setColor(Graphics.COLOR_BLACK);
         }
-        value.setText(mValue.format("%.2f"));
+        value.setText(mValue.format("%i"));
+
+        speedRounded = mValue.toNumber();
+
+        Sys.println("DEBUG: drawImage() state: " + speedRounded);
 
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);
 
-        if (img == false) {
-            Sys.println("DEBUG: drawImage() state == " + img);
-            // Set the foreground color and value
-            dc.drawBitmap(75,45, myBitmap);
-            //img = true;
-        }
-    }
+        // Draw Line under image
+        dc.setPenWidth(2);
+        dc.drawLine(dc.getWidth() / 2 -110, dc.getHeight() / 2 -15, dc.getWidth() / 2 +110, dc.getHeight() / 2 -15);
 
+        if (speedRounded >= 0 && speedRounded <= 5) {
+            Sys.println("DEBUG: drawImage() SNAIL");
+            dc.drawBitmap(75,40, myBitmap0);
+        }
+        else if (speedRounded >= 6 && speedRounded <= 10) {
+            Sys.println("DEBUG: drawImage() TURTLE");
+            dc.drawBitmap(75,40, myBitmap1);
+        }
+        else if (speedRounded >= 11 && speedRounded <= 15) {
+            Sys.println("DEBUG: drawImage() RABBIT");
+            dc.drawBitmap(75,40, myBitmap2);
+        }
+        else if (speedRounded >= 16 && speedRounded <= 20) {
+            Sys.println("DEBUG: drawImage() ROCKET");
+            dc.drawBitmap(75,40, myBitmap3);
+        }
+        else {
+            Sys.println("DEBUG: drawImage() else");
+
+        } 
+
+    
+    }
 }

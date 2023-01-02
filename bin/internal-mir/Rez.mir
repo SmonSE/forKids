@@ -67,10 +67,10 @@ Rez_mc_21_70_start:
             lputv %rez_cmp_local_var_dc_getWidth.2 %tmp.6;
 [ "Rez.mc" 26 0 ]
             [ "Rez_mc_21_70_start" "Rez_mc_21_70_stop" ]
-            %rez_cmp_local_custom_drawable_62911846116035594739.3 = local;
+            %rez_cmp_local_custom_drawable_40853771120313085933.3 = local;
             %tmp.10 = getv ? :Background;
             %tmp.7 = newc %tmp.10 ();
-            lputv %rez_cmp_local_custom_drawable_62911846116035594739.3 %tmp.7;
+            lputv %rez_cmp_local_custom_drawable_40853771120313085933.3 %tmp.7;
 [ "Rez.mc" 27 0 ]
             [ "Rez_mc_21_70_start" "Rez_mc_21_70_stop" ]
             %rez_cmp_local_text_label.4 = local;
@@ -163,7 +163,7 @@ Rez_mc_21_70_start:
             lputv %rez_cmp_local_text_value.5 %tmp.61;
 [ "Rez.mc" 30 8 ]
             %tmp.111 = newa Array<WatchUi.Drawable> 3;
-            %tmp.113 = lgetv %rez_cmp_local_custom_drawable_62911846116035594739.3;
+            %tmp.113 = lgetv %rez_cmp_local_custom_drawable_40853771120313085933.3;
             %tmp.114 = dup %tmp.111;
             %tmp.115 = aputv %tmp.114 0 %tmp.113;
             %tmp.117 = lgetv %rez_cmp_local_text_label.4;
@@ -188,10 +188,10 @@ Rez_mc_21_70_stop:
 Rez_mc_39_73_start:
 [ "Rez.mc" 42 0 ]
             [ "Rez_mc_39_73_start" "Rez_mc_39_73_stop" ]
-            %rez_cmp_local_custom_drawable_15096290781997129223.1 = local;
+            %rez_cmp_local_custom_drawable_38620461113561053551.1 = local;
             %tmp.4 = getv ? :Background;
             %tmp.1 = newc %tmp.4 ();
-            lputv %rez_cmp_local_custom_drawable_15096290781997129223.1 %tmp.1;
+            lputv %rez_cmp_local_custom_drawable_38620461113561053551.1 %tmp.1;
 [ "Rez.mc" 43 0 ]
             [ "Rez_mc_39_73_start" "Rez_mc_39_73_stop" ]
             %rez_cmp_local_text_label.2 = local;
@@ -264,7 +264,7 @@ Rez_mc_39_73_start:
             lputv %rez_cmp_local_text_value.3 %tmp.43;
 [ "Rez.mc" 46 8 ]
             %tmp.81 = newa Array<WatchUi.Drawable> 3;
-            %tmp.83 = lgetv %rez_cmp_local_custom_drawable_15096290781997129223.1;
+            %tmp.83 = lgetv %rez_cmp_local_custom_drawable_38620461113561053551.1;
             %tmp.84 = dup %tmp.81;
             %tmp.85 = aputv %tmp.84 0 %tmp.83;
             %tmp.87 = lgetv %rez_cmp_local_text_label.2;
@@ -289,10 +289,10 @@ Rez_mc_39_73_stop:
 Rez_mc_55_74_start:
 [ "Rez.mc" 58 0 ]
             [ "Rez_mc_55_74_start" "Rez_mc_55_74_stop" ]
-            %rez_cmp_local_custom_drawable_72279096544581192613.1 = local;
+            %rez_cmp_local_custom_drawable_19073760901029831619.1 = local;
             %tmp.4 = getv ? :Background;
             %tmp.1 = newc %tmp.4 ();
-            lputv %rez_cmp_local_custom_drawable_72279096544581192613.1 %tmp.1;
+            lputv %rez_cmp_local_custom_drawable_19073760901029831619.1 %tmp.1;
 [ "Rez.mc" 59 0 ]
             [ "Rez_mc_55_74_start" "Rez_mc_55_74_stop" ]
             %rez_cmp_local_text_label.2 = local;
@@ -365,7 +365,7 @@ Rez_mc_55_74_start:
             lputv %rez_cmp_local_text_value.3 %tmp.43;
 [ "Rez.mc" 62 8 ]
             %tmp.81 = newa Array<WatchUi.Drawable> 3;
-            %tmp.83 = lgetv %rez_cmp_local_custom_drawable_72279096544581192613.1;
+            %tmp.83 = lgetv %rez_cmp_local_custom_drawable_19073760901029831619.1;
             %tmp.84 = dup %tmp.81;
             %tmp.85 = aputv %tmp.84 0 %tmp.83;
             %tmp.87 = lgetv %rez_cmp_local_text_label.2;
@@ -390,10 +390,10 @@ Rez_mc_55_74_stop:
 Rez_mc_71_76_start:
 [ "Rez.mc" 74 0 ]
             [ "Rez_mc_71_76_start" "Rez_mc_71_76_stop" ]
-            %rez_cmp_local_custom_drawable_28424798411449277128.1 = local;
+            %rez_cmp_local_custom_drawable_11730488091399026504.1 = local;
             %tmp.4 = getv ? :Background;
             %tmp.1 = newc %tmp.4 ();
-            lputv %rez_cmp_local_custom_drawable_28424798411449277128.1 %tmp.1;
+            lputv %rez_cmp_local_custom_drawable_11730488091399026504.1 %tmp.1;
 [ "Rez.mc" 75 0 ]
             [ "Rez_mc_71_76_start" "Rez_mc_71_76_stop" ]
             %rez_cmp_local_text_label.2 = local;
@@ -466,7 +466,7 @@ Rez_mc_71_76_start:
             lputv %rez_cmp_local_text_value.3 %tmp.43;
 [ "Rez.mc" 78 8 ]
             %tmp.81 = newa Array<WatchUi.Drawable> 3;
-            %tmp.83 = lgetv %rez_cmp_local_custom_drawable_28424798411449277128.1;
+            %tmp.83 = lgetv %rez_cmp_local_custom_drawable_11730488091399026504.1;
             %tmp.84 = dup %tmp.81;
             %tmp.85 = aputv %tmp.84 0 %tmp.83;
             %tmp.87 = lgetv %rez_cmp_local_text_label.2;
@@ -491,10 +491,10 @@ Rez_mc_71_76_stop:
 Rez_mc_87_77_start:
 [ "Rez.mc" 90 0 ]
             [ "Rez_mc_87_77_start" "Rez_mc_87_77_stop" ]
-            %rez_cmp_local_custom_drawable_12983489241466545582.1 = local;
+            %rez_cmp_local_custom_drawable_59901938114539941261.1 = local;
             %tmp.4 = getv ? :Background;
             %tmp.1 = newc %tmp.4 ();
-            lputv %rez_cmp_local_custom_drawable_12983489241466545582.1 %tmp.1;
+            lputv %rez_cmp_local_custom_drawable_59901938114539941261.1 %tmp.1;
 [ "Rez.mc" 91 0 ]
             [ "Rez_mc_87_77_start" "Rez_mc_87_77_stop" ]
             %rez_cmp_local_text_label.2 = local;
@@ -567,7 +567,7 @@ Rez_mc_87_77_start:
             lputv %rez_cmp_local_text_value.3 %tmp.43;
 [ "Rez.mc" 94 8 ]
             %tmp.81 = newa Array<WatchUi.Drawable> 3;
-            %tmp.83 = lgetv %rez_cmp_local_custom_drawable_12983489241466545582.1;
+            %tmp.83 = lgetv %rez_cmp_local_custom_drawable_59901938114539941261.1;
             %tmp.84 = dup %tmp.81;
             %tmp.85 = aputv %tmp.84 0 %tmp.83;
             %tmp.87 = lgetv %rez_cmp_local_text_label.2;
