@@ -15,6 +15,7 @@ class forKidsView extends WatchUi.DataField {
     var myBitmap4;
     var img = false;
 
+    hidden var sValue as Numeric;
     hidden var mValue as Numeric;
 
     //getActivityInfo
@@ -23,6 +24,7 @@ class forKidsView extends WatchUi.DataField {
 
     function initialize() {
         DataField.initialize();
+        sValue = 0.0f;
         mValue = 0.0f;
         myBitmap0 = WatchUi.loadResource(Rez.Drawables.snail);
         myBitmap1 = WatchUi.loadResource(Rez.Drawables.turtle);
@@ -59,6 +61,8 @@ class forKidsView extends WatchUi.DataField {
             labelView.locY = labelView.locY - 16;
             var valueView = View.findDrawableById("value");
             valueView.locY = valueView.locY + 7;
+            var distanceView = View.findDrawableById("distance");
+            distanceView.locY = distanceView.locY + 130;
         }
 
         (View.findDrawableById("label") as Text).setText(Rez.Strings.label);
@@ -72,8 +76,20 @@ class forKidsView extends WatchUi.DataField {
         // See Activity.Info in the documentation for available information.
         if(info has :currentSpeed){
             if(info.currentSpeed != null){
-                mValue = info.currentSpeed as Number;
+                sValue = info.currentSpeed as Number;
             } else {
+                sValue = 0.0f;
+            }
+        }
+
+        // Distance
+        if(info has :elapsedDistance){
+            Sys.println("DEBUG: drawImage() elapsedDistance");
+            if(info.elapsedDistance != null){
+                Sys.println("DEBUG: drawImage() != null");
+                mValue = info.elapsedDistance as Number;
+            } else {
+                Sys.println("DEBUG: drawImage() mValue 0.0");
                 mValue = 0.0f;
             }
         }
@@ -92,9 +108,18 @@ class forKidsView extends WatchUi.DataField {
         } else {
             value.setColor(Graphics.COLOR_BLACK);
         }
-        value.setText(mValue.format("%i") + " km/h");
+        value.setText(sValue.format("%i") + " km/h");
 
-        speedRounded = mValue.toNumber();
+        var distance = View.findDrawableById("distance") as Text;
+        if (getBackgroundColor() == Graphics.COLOR_BLACK) {
+            distance.setColor(Graphics.COLOR_WHITE);
+        } else {
+            distance.setColor(Graphics.COLOR_BLACK);
+        }
+        distance.setText(mValue.format("%i") + " km");
+        
+
+        speedRounded = sValue.toNumber();
         Sys.println("DEBUG: drawImage() state: " + speedRounded);
 
         // Call parent's onUpdate(dc) to redraw the layout
@@ -104,6 +129,7 @@ class forKidsView extends WatchUi.DataField {
         dc.setPenWidth(2);
         dc.drawLine(dc.getWidth() / 2 -110, dc.getHeight() / 2 -15, dc.getWidth() / 2 +110, dc.getHeight() / 2 -15);
         dc.drawLine(dc.getWidth() / 2 -110, dc.getHeight() / 2 +35, dc.getWidth() / 2 +110, dc.getHeight() / 2 +35);
+        dc.drawLine(dc.getWidth() / 2 -110, dc.getHeight() / 2 +110, dc.getWidth() / 2 +110, dc.getHeight() / 2 +110);
 
         if (speedRounded >= 1 && speedRounded <= 5) {
             Sys.println("DEBUG: drawImage() SNAIL");
