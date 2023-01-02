@@ -3,4 +3,5 @@
     <bitmap id="turtle" filename="drawables/turtle.png" />
     <bitmap id="rabbit" filename="drawables/rabbit.png" />
     <bitmap id="rocket" filename="drawables/rocket.png" />
+    <bitmap id="sleep" filename="drawables/sleep.png" />
 </resources>
