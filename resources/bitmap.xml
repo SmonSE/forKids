@@ -1,0 +1,6 @@
+<resources> 
+    <bitmap id="snail" filename="drawables/snail.png" />
+    <bitmap id="turtle" filename="drawables/turtle.png" />
+    <bitmap id="rabbit" filename="drawables/rabbit.png" />
+    <bitmap id="rocket" filename="drawables/rocket.png" />
+</resources>
