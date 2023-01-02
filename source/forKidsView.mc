@@ -121,7 +121,7 @@ class forKidsView extends WatchUi.DataField {
         }
         else {
             Sys.println("DEBUG: drawImage() else");
-
+            // Main Logo maybe
         } 
 
     
