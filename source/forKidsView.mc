@@ -13,7 +13,10 @@ class forKidsView extends WatchUi.DataField {
     var myBitmap2;
     var myBitmap3;
     var myBitmap4;
+    var myBitmap5;
     var img = false;
+    var starX = 20;
+    var starY = 210;
 
     hidden var sValue as Numeric;
     hidden var mValue as Numeric;
@@ -21,6 +24,7 @@ class forKidsView extends WatchUi.DataField {
     //getActivityInfo
     var actInfo = Activity.getActivityInfo();
     var speedRounded;
+    var distanceRounded;
 
     function initialize() {
         DataField.initialize();
@@ -31,6 +35,7 @@ class forKidsView extends WatchUi.DataField {
         myBitmap2 = WatchUi.loadResource(Rez.Drawables.rabbit);
         myBitmap3 = WatchUi.loadResource(Rez.Drawables.rocket);
         myBitmap4 = WatchUi.loadResource(Rez.Drawables.sleep);
+        myBitmap5 = WatchUi.loadResource(Rez.Drawables.star);
     }
 
     // Set your layout here. Anytime the size of obscurity of
@@ -76,9 +81,11 @@ class forKidsView extends WatchUi.DataField {
         // See Activity.Info in the documentation for available information.
         if(info has :currentSpeed){
             if(info.currentSpeed != null){
-                sValue = info.currentSpeed as Number;
+                sValue = info.currentSpeed as Number * 3.6;     // from mps to kmh
+                Sys.println("DEBUG: currentSpeed() " + sValue.toNumber());
             } else {
                 sValue = 0.0f;
+                Sys.println("DEBUG: currentSpeed() " + sValue.toNumber());
             }
         }
 
@@ -86,11 +93,11 @@ class forKidsView extends WatchUi.DataField {
         if(info has :elapsedDistance){
             Sys.println("DEBUG: drawImage() elapsedDistance");
             if(info.elapsedDistance != null){
-                Sys.println("DEBUG: drawImage() != null");
-                mValue = info.elapsedDistance as Number;
+                mValue = info.elapsedDistance as Number / 1000; // from m to km
+                Sys.println("DEBUG: elapsedDistance() " + mValue.toNumber());
             } else {
-                Sys.println("DEBUG: drawImage() mValue 0.0");
                 mValue = 0.0f;
+                Sys.println("DEBUG: elapsedDistance() " + mValue.toNumber());
             }
         }
     }
@@ -118,12 +125,17 @@ class forKidsView extends WatchUi.DataField {
         }
         distance.setText(mValue.format("%i") + " km");
         
-
         speedRounded = sValue.toNumber();
         Sys.println("DEBUG: drawImage() state: " + speedRounded);
 
+        distanceRounded = mValue.toNumber();
+        Sys.println("DEBUG: drawImage() state: " + distanceRounded);
+
+
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);
+
+        // ----------------------------------------------------------- //
 
         // Draw Line under image
         dc.setPenWidth(2);
@@ -131,27 +143,51 @@ class forKidsView extends WatchUi.DataField {
         dc.drawLine(dc.getWidth() / 2 -110, dc.getHeight() / 2 +35, dc.getWidth() / 2 +110, dc.getHeight() / 2 +35);
         dc.drawLine(dc.getWidth() / 2 -110, dc.getHeight() / 2 +110, dc.getWidth() / 2 +110, dc.getHeight() / 2 +110);
 
-        if (speedRounded >= 1 && speedRounded <= 5) {
-            Sys.println("DEBUG: drawImage() SNAIL");
+        if (speedRounded >= 1 && speedRounded <= 7) {
+            //Sys.println("DEBUG: drawImage() SNAIL");
             dc.drawBitmap(75,35, myBitmap0);
         }
-        else if (speedRounded >= 6 && speedRounded <= 10) {
-            Sys.println("DEBUG: drawImage() TURTLE");
+        else if (speedRounded >= 8 && speedRounded <= 14) {
+            //Sys.println("DEBUG: drawImage() TURTLE");
             dc.drawBitmap(75,35, myBitmap1);
         }
-        else if (speedRounded >= 11 && speedRounded <= 15) {
-            Sys.println("DEBUG: drawImage() RABBIT");
+        else if (speedRounded >= 15 && speedRounded <= 21) {
+            //Sys.println("DEBUG: drawImage() RABBIT");
             dc.drawBitmap(75,35, myBitmap2);
         }
-        else if (speedRounded >= 16 && speedRounded <= 20) {
-            Sys.println("DEBUG: drawImage() ROCKET");
+        else if (speedRounded > 21 ) {
+            //Sys.println("DEBUG: drawImage() ROCKET");
             dc.drawBitmap(75,35, myBitmap3);
         }
         else {
-            Sys.println("DEBUG: drawImage() SLEEP");
+            //Sys.println("DEBUG: drawImage() SLEEP");
             dc.drawBitmap(75,35, myBitmap4);
         } 
 
-    
+        if (distanceRounded != 0) {
+            if (distanceRounded == 1) {
+                dc.drawBitmap(starX,starY, myBitmap5);
+            } else if (distanceRounded == 2) {
+                dc.drawBitmap(starX,starY, myBitmap5);
+                dc.drawBitmap(starX + 40,starY, myBitmap5);
+            } else if (distanceRounded == 3) {
+                dc.drawBitmap(starX,starY, myBitmap5);
+                dc.drawBitmap(starX + 40,starY, myBitmap5);
+                dc.drawBitmap(starX + 80,starY, myBitmap5);
+            } else if (distanceRounded == 4) {
+                dc.drawBitmap(starX,starY, myBitmap5);
+                dc.drawBitmap(starX + 40,starY, myBitmap5);
+                dc.drawBitmap(starX + 80,starY, myBitmap5);
+                dc.drawBitmap(starX + 120,starY, myBitmap5);
+            } else if (distanceRounded == 5) {
+                dc.drawBitmap(starX,starY, myBitmap5);
+                dc.drawBitmap(starX + 40,starY, myBitmap5);
+                dc.drawBitmap(starX + 80,starY, myBitmap5);
+                dc.drawBitmap(starX + 120,starY, myBitmap5);
+                dc.drawBitmap(starX + 160,starY, myBitmap5);
+            } else {
+                Sys.println("DEBUG: drawBitmap() NOTHING");
+            }
+        }    
     }
 }
