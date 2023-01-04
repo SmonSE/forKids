@@ -8,13 +8,7 @@ using Toybox.System as Sys;
 
 class forKidsView extends WatchUi.DataField {
 
-    var myBitmap0;
-    var myBitmap1;
-    var myBitmap2;
-    var myBitmap3;
-    var myBitmap4;
-    var myBitmap5;
-    var img = false;
+    var myBitmap0, myBitmap1, myBitmap2, myBitmap3, myBitmap4, myBitmap5, myBitmap6;
     var starX = 20;
     var starY = 210;
 
@@ -36,6 +30,7 @@ class forKidsView extends WatchUi.DataField {
         myBitmap3 = WatchUi.loadResource(Rez.Drawables.rocket);
         myBitmap4 = WatchUi.loadResource(Rez.Drawables.sleep);
         myBitmap5 = WatchUi.loadResource(Rez.Drawables.star);
+        myBitmap6 = WatchUi.loadResource(Rez.Drawables.starBlack);
     }
 
     // Set your layout here. Anytime the size of obscurity of
@@ -82,22 +77,18 @@ class forKidsView extends WatchUi.DataField {
         if(info has :currentSpeed){
             if(info.currentSpeed != null){
                 sValue = info.currentSpeed as Number * 3.6;     // from mps to kmh
-                Sys.println("DEBUG: currentSpeed() " + sValue.toNumber());
             } else {
                 sValue = 0.0f;
-                Sys.println("DEBUG: currentSpeed() " + sValue.toNumber());
             }
         }
 
         // Distance
         if(info has :elapsedDistance){
-            Sys.println("DEBUG: drawImage() elapsedDistance");
+            //Sys.println("DEBUG: drawImage() elapsedDistance");
             if(info.elapsedDistance != null){
                 mValue = info.elapsedDistance as Number / 1000; // from m to km
-                Sys.println("DEBUG: elapsedDistance() " + mValue.toNumber());
             } else {
                 mValue = 0.0f;
-                Sys.println("DEBUG: elapsedDistance() " + mValue.toNumber());
             }
         }
     }
@@ -126,10 +117,10 @@ class forKidsView extends WatchUi.DataField {
         distance.setText(mValue.format("%i") + " km");
         
         speedRounded = sValue.toNumber();
-        Sys.println("DEBUG: drawImage() state: " + speedRounded);
+        //Sys.println("DEBUG: drawImage() state: " + speedRounded);
 
         distanceRounded = mValue.toNumber();
-        Sys.println("DEBUG: drawImage() state: " + distanceRounded);
+        //Sys.println("DEBUG: drawImage() state: " + distanceRounded);
 
 
         // Call parent's onUpdate(dc) to redraw the layout
@@ -165,28 +156,72 @@ class forKidsView extends WatchUi.DataField {
         } 
 
         if (distanceRounded != 0) {
-            if (distanceRounded == 1) {
-                dc.drawBitmap(starX,starY, myBitmap5);
-            } else if (distanceRounded == 2) {
-                dc.drawBitmap(starX,starY, myBitmap5);
-                dc.drawBitmap(starX + 40,starY, myBitmap5);
-            } else if (distanceRounded == 3) {
-                dc.drawBitmap(starX,starY, myBitmap5);
-                dc.drawBitmap(starX + 40,starY, myBitmap5);
-                dc.drawBitmap(starX + 80,starY, myBitmap5);
-            } else if (distanceRounded == 4) {
-                dc.drawBitmap(starX,starY, myBitmap5);
-                dc.drawBitmap(starX + 40,starY, myBitmap5);
-                dc.drawBitmap(starX + 80,starY, myBitmap5);
-                dc.drawBitmap(starX + 120,starY, myBitmap5);
-            } else if (distanceRounded == 5) {
-                dc.drawBitmap(starX,starY, myBitmap5);
-                dc.drawBitmap(starX + 40,starY, myBitmap5);
-                dc.drawBitmap(starX + 80,starY, myBitmap5);
-                dc.drawBitmap(starX + 120,starY, myBitmap5);
-                dc.drawBitmap(starX + 160,starY, myBitmap5);
-            } else {
-                Sys.println("DEBUG: drawBitmap() NOTHING");
+
+            switch ( distanceRounded ) {
+                case 1: {
+                    dc.drawBitmap(starX,starY, myBitmap5);
+                    break;
+                }
+                case 2: {
+                    dc.drawBitmap(starX,starY, myBitmap5);
+                    dc.drawBitmap(starX + 40,starY, myBitmap5);
+                    break;
+                }
+                case 3: {
+                    dc.drawBitmap(starX,starY, myBitmap5);
+                    dc.drawBitmap(starX + 40,starY, myBitmap5);
+                    dc.drawBitmap(starX + 80,starY, myBitmap5);
+                    break;
+                }
+                case 4: {
+                    dc.drawBitmap(starX,starY, myBitmap5);
+                    dc.drawBitmap(starX + 40,starY, myBitmap5);
+                    dc.drawBitmap(starX + 80,starY, myBitmap5);
+                    dc.drawBitmap(starX + 120,starY, myBitmap5);
+                    break;
+                }
+                case 5: {
+                    dc.drawBitmap(starX,starY, myBitmap5);
+                    dc.drawBitmap(starX + 40,starY, myBitmap5);
+                    dc.drawBitmap(starX + 80,starY, myBitmap5);
+                    dc.drawBitmap(starX + 120,starY, myBitmap5);
+                    dc.drawBitmap(starX + 160,starY, myBitmap5);
+                    break;
+                }
+                case 6: {
+                    dc.drawBitmap(starX,starY, myBitmap6);
+                    break;
+                }
+                case 7: {
+                    dc.drawBitmap(starX,starY, myBitmap6);
+                    dc.drawBitmap(starX + 40,starY, myBitmap6);
+                    break;
+                }
+                case 8: {
+                    dc.drawBitmap(starX,starY, myBitmap6);
+                    dc.drawBitmap(starX + 40,starY, myBitmap6);
+                    dc.drawBitmap(starX + 80,starY, myBitmap6);
+                    break;
+                }
+                case 9: {
+                    dc.drawBitmap(starX,starY, myBitmap6);
+                    dc.drawBitmap(starX + 40,starY, myBitmap6);
+                    dc.drawBitmap(starX + 80,starY, myBitmap6);
+                    dc.drawBitmap(starX + 120,starY, myBitmap6);
+                    break;
+                }
+                case 10: {
+                    dc.drawBitmap(starX,starY, myBitmap6);
+                    dc.drawBitmap(starX + 40,starY, myBitmap6);
+                    dc.drawBitmap(starX + 80,starY, myBitmap6);
+                    dc.drawBitmap(starX + 120,starY, myBitmap6);
+                    dc.drawBitmap(starX + 160,starY, myBitmap6);
+                    break;
+                }
+                default: {
+                    Sys.println("DEBUG: drawBitmap() NOTHING");
+                    break;
+                }
             }
         }    
     }

@@ -2,6 +2,8 @@ import Toybox.Application;
 import Toybox.Graphics;
 import Toybox.WatchUi;
 
+using Toybox.System as Sys;
+
 class Background extends WatchUi.Drawable {
 
     hidden var mColor as ColorValue;
@@ -21,6 +23,7 @@ class Background extends WatchUi.Drawable {
     }
 
     function draw(dc as Dc) as Void {
+        Sys.println("DEBUG: Background draw()");
         dc.setColor(Graphics.COLOR_TRANSPARENT, mColor);
         dc.clear();
     }
