@@ -6,4 +6,5 @@
     <bitmap id="sleep" filename="drawables/sleep.png" />
     <bitmap id="star" filename="drawables/star.png" />
     <bitmap id="starBlack" filename="drawables/starBlack.png" />
+    <bitmap id="trophy" filename="drawables/trophy.png" />
 </resources>
