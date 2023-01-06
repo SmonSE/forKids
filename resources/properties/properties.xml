@@ -1,0 +1,5 @@
+<properties>
+    <property id="zone1" type="number">5</property>
+    <property id="zone2" type="number">10</property>
+    <property id="zone3" type="number">15</property>
+</properties>

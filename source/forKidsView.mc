@@ -5,6 +5,7 @@ import Toybox.WatchUi;
 import Toybox.System;
 
 using Toybox.System as Sys;
+using Toybox.Application as App;
 
 class forKidsView extends WatchUi.DataField {
 
@@ -20,6 +21,11 @@ class forKidsView extends WatchUi.DataField {
     var actInfo = Activity.getActivityInfo();
     var speedRounded;
     var distanceRounded;
+
+    // load the zones from app properties 
+    var zone_1 = DataManager.getZone1();
+    var zone_2 = DataManager.getZone2();
+    var zone_3 = DataManager.getZone3();
 
     function initialize() {
         DataField.initialize();
@@ -93,6 +99,10 @@ class forKidsView extends WatchUi.DataField {
                 mValue = 0.0f;
             }
         }
+
+        Sys.println("DEBUG: getProp(): Zone's -> " + zone_1 );
+        Sys.println("DEBUG: getProp(): Zone's -> " + zone_2 );
+        Sys.println("DEBUG: getProp(): Zone's -> " + zone_3 );
     }
 
     // Display the value you computed here. This will be called
@@ -136,24 +146,24 @@ class forKidsView extends WatchUi.DataField {
         dc.drawLine(dc.getWidth() / 2 -110, dc.getHeight() / 2 +35, dc.getWidth() / 2 +110, dc.getHeight() / 2 +35);
         dc.drawLine(dc.getWidth() / 2 -110, dc.getHeight() / 2 +110, dc.getWidth() / 2 +110, dc.getHeight() / 2 +110);
 
-        if (speedRounded >= 1 && speedRounded <= 7) {
+        if (speedRounded >= 1 && speedRounded <= zone_1) {              // 1-5 km/h
             //Sys.println("DEBUG: drawImage() SNAIL");
             dc.drawBitmap(75,35, myBitmap0);
         }
-        else if (speedRounded >= 8 && speedRounded <= 14) {
+        else if (speedRounded > zone_1 && speedRounded <= zone_2) {     // 6-10 km/h
             //Sys.println("DEBUG: drawImage() TURTLE");
             dc.drawBitmap(75,35, myBitmap1);
         }
-        else if (speedRounded >= 15 && speedRounded <= 21) {
+        else if (speedRounded > zone_2 && speedRounded <= zone_3) {     // 11-15 km/h
             //Sys.println("DEBUG: drawImage() RABBIT");
             dc.drawBitmap(75,35, myBitmap2);
         }
-        else if (speedRounded > 21 ) {
+        else if (speedRounded > zone_3 ) {                              // 16 km/h
             //Sys.println("DEBUG: drawImage() ROCKET");
             dc.drawBitmap(75,35, myBitmap3);
         }
         else {
-            //Sys.println("DEBUG: drawImage() SLEEP");
+            //Sys.println("DEBUG: drawImage() SLEEP");                  // 0 km/h
             dc.drawBitmap(75,35, myBitmap4);
         } 
 
