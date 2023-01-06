@@ -99,10 +99,6 @@ class forKidsView extends WatchUi.DataField {
                 mValue = 0.0f;
             }
         }
-
-        Sys.println("DEBUG: getProp(): Zone's -> " + zone_1 );
-        Sys.println("DEBUG: getProp(): Zone's -> " + zone_2 );
-        Sys.println("DEBUG: getProp(): Zone's -> " + zone_3 );
     }
 
     // Display the value you computed here. This will be called
