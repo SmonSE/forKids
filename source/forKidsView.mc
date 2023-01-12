@@ -65,15 +65,11 @@ class forKidsView extends WatchUi.DataField {
         // Use the generic, centered layout
         } else {
             View.setLayout(Rez.Layouts.MainLayout(dc));
-            var labelView = View.findDrawableById("label");
-            labelView.locY = labelView.locY - 16;
             var valueView = View.findDrawableById("value");
             valueView.locY = valueView.locY + 7;
             var distanceView = View.findDrawableById("distance");
             distanceView.locY = distanceView.locY + 130;
         }
-
-        (View.findDrawableById("label") as Text).setText(Rez.Strings.label);
     }
 
     // The given info object contains all the current workout information.
@@ -232,7 +228,7 @@ class forKidsView extends WatchUi.DataField {
                     }
                 }
             } else {
-                dc.drawBitmap(starX +80,starY, myBitmap7);
+                dc.drawBitmap(starX +80,starY -5, myBitmap7);
             }
         }    
     }
