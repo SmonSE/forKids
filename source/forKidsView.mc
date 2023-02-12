@@ -11,6 +11,8 @@ class forKidsView extends WatchUi.DataField {
 
     var myBitmap0, myBitmap1, myBitmap2, myBitmap3; 
     var myBitmap4, myBitmap5, myBitmap6, myBitmap7;
+    var myBitmap8, myBitmap9, myBitmap10, myBitmap11;
+    var myBitmap12, myBitmap13, myBitmap14, myBitmap15;
     var starX = 20;
     var starY = 210;
 
@@ -39,6 +41,15 @@ class forKidsView extends WatchUi.DataField {
         myBitmap5 = WatchUi.loadResource(Rez.Drawables.star);
         myBitmap6 = WatchUi.loadResource(Rez.Drawables.starBlack);
         myBitmap7 = WatchUi.loadResource(Rez.Drawables.trophy);
+        
+        myBitmap8 = WatchUi.loadResource(Rez.Drawables.rabbitw);
+        myBitmap9 = WatchUi.loadResource(Rez.Drawables.sleepw);
+        myBitmap10 = WatchUi.loadResource(Rez.Drawables.rocketw);
+        myBitmap11 = WatchUi.loadResource(Rez.Drawables.snailw);
+        myBitmap12 = WatchUi.loadResource(Rez.Drawables.turtlew);
+        myBitmap13 = WatchUi.loadResource(Rez.Drawables.starw);
+        myBitmap14 = WatchUi.loadResource(Rez.Drawables.starBlackw);
+        myBitmap15 = WatchUi.loadResource(Rez.Drawables.trophyw);
     }
 
     // Set your layout here. Anytime the size of obscurity of
@@ -140,86 +151,122 @@ class forKidsView extends WatchUi.DataField {
 
         if (speedRounded >= 1 && speedRounded <= zone_1) {              // 1-5 km/h
             //Sys.println("DEBUG: drawImage() SNAIL");
-            dc.drawBitmap(75,35, myBitmap0);
+            if(getBackgroundColor() == Graphics.COLOR_BLACK) {
+                dc.drawBitmap(75,35, myBitmap11);
+            }
+            else {
+                dc.drawBitmap(75,35, myBitmap0);
+            }
         }
         else if (speedRounded > zone_1 && speedRounded <= zone_2) {     // 6-10 km/h
             //Sys.println("DEBUG: drawImage() TURTLE");
-            dc.drawBitmap(75,35, myBitmap1);
+            if(getBackgroundColor() == Graphics.COLOR_BLACK) {
+                dc.drawBitmap(75,35, myBitmap12);
+            }
+            else {
+                dc.drawBitmap(75,35, myBitmap1);
+            }
         }
         else if (speedRounded > zone_2 && speedRounded <= zone_3) {     // 11-15 km/h
             //Sys.println("DEBUG: drawImage() RABBIT");
-            dc.drawBitmap(75,35, myBitmap2);
+            if(getBackgroundColor() == Graphics.COLOR_BLACK) {
+                dc.drawBitmap(75,35, myBitmap8);
+            }
+            else {
+                dc.drawBitmap(75,35, myBitmap2);
+            }
         }
         else if (speedRounded > zone_3 ) {                              // 16 km/h
             //Sys.println("DEBUG: drawImage() ROCKET");
-            dc.drawBitmap(75,35, myBitmap3);
+            if(getBackgroundColor() == Graphics.COLOR_BLACK) {
+                dc.drawBitmap(75,35, myBitmap10);
+            }
+            else {
+                dc.drawBitmap(75,35, myBitmap3);
+            }
         }
         else {
             //Sys.println("DEBUG: drawImage() SLEEP");                  // 0 km/h
-            dc.drawBitmap(75,35, myBitmap4);
+            if(getBackgroundColor() == Graphics.COLOR_BLACK) {
+                dc.drawBitmap(75,35, myBitmap9);
+            }
+            else {
+                dc.drawBitmap(75,35, myBitmap4);
+            }
         } 
+
+
+        var starBitmap = myBitmap5;
+        if( getBackgroundColor() == Graphics.COLOR_BLACK) {
+            starBitmap = myBitmap12;
+        }
+        
+        var starBlackBitmap = myBitmap6;
+        if( getBackgroundColor() == Graphics.COLOR_BLACK) {
+            starBlackBitmap = myBitmap14;
+        }
 
         if (distanceRounded != 0) {
             if (distanceRounded <= 10) {
                 switch ( distanceRounded ) {
                     case 1: {
-                        dc.drawBitmap(starX,starY, myBitmap5);
+                        dc.drawBitmap(starX,starY, starBitmap);
                         break;
                     }
                     case 2: {
-                        dc.drawBitmap(starX,starY, myBitmap5);
-                        dc.drawBitmap(starX + 40,starY, myBitmap5);
+                        dc.drawBitmap(starX,starY, starBitmap);
+                        dc.drawBitmap(starX + 40,starY, starBitmap);
                         break;
                     }
                     case 3: {
-                        dc.drawBitmap(starX,starY, myBitmap5);
-                        dc.drawBitmap(starX + 40,starY, myBitmap5);
-                        dc.drawBitmap(starX + 80,starY, myBitmap5);
+                        dc.drawBitmap(starX,starY, starBitmap);
+                        dc.drawBitmap(starX + 40,starY, starBitmap);
+                        dc.drawBitmap(starX + 80,starY, starBitmap);
                         break;
                     }
                     case 4: {
-                        dc.drawBitmap(starX,starY, myBitmap5);
-                        dc.drawBitmap(starX + 40,starY, myBitmap5);
-                        dc.drawBitmap(starX + 80,starY, myBitmap5);
-                        dc.drawBitmap(starX + 120,starY, myBitmap5);
+                        dc.drawBitmap(starX,starY, starBitmap);
+                        dc.drawBitmap(starX + 40,starY, starBitmap);
+                        dc.drawBitmap(starX + 80,starY, starBitmap);
+                        dc.drawBitmap(starX + 120,starY, starBitmap);
                         break;
                     }
                     case 5: {
-                        dc.drawBitmap(starX,starY, myBitmap5);
-                        dc.drawBitmap(starX + 40,starY, myBitmap5);
-                        dc.drawBitmap(starX + 80,starY, myBitmap5);
-                        dc.drawBitmap(starX + 120,starY, myBitmap5);
-                        dc.drawBitmap(starX + 160,starY, myBitmap5);
+                        dc.drawBitmap(starX,starY, starBitmap);
+                        dc.drawBitmap(starX + 40,starY, starBitmap);
+                        dc.drawBitmap(starX + 80,starY, starBitmap);
+                        dc.drawBitmap(starX + 120,starY, starBitmap);
+                        dc.drawBitmap(starX + 160,starY, starBitmap);
                         break;
                     }
                     case 6: {
-                        dc.drawBitmap(starX,starY, myBitmap6);
+                        dc.drawBitmap(starX,starY, starBlackBitmap);
                         break;
                     }
                     case 7: {
-                        dc.drawBitmap(starX,starY, myBitmap6);
-                        dc.drawBitmap(starX + 40,starY, myBitmap6);
+                        dc.drawBitmap(starX,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 40,starY, starBlackBitmap);
                         break;
                     }
                     case 8: {
-                        dc.drawBitmap(starX,starY, myBitmap6);
-                        dc.drawBitmap(starX + 40,starY, myBitmap6);
-                        dc.drawBitmap(starX + 80,starY, myBitmap6);
+                        dc.drawBitmap(starX,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 40,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 80,starY, starBlackBitmap);
                         break;
                     }
                     case 9: {
-                        dc.drawBitmap(starX,starY, myBitmap6);
-                        dc.drawBitmap(starX + 40,starY, myBitmap6);
-                        dc.drawBitmap(starX + 80,starY, myBitmap6);
-                        dc.drawBitmap(starX + 120,starY, myBitmap6);
+                        dc.drawBitmap(starX,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 40,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 80,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 120,starY, starBlackBitmap);
                         break;
                     }
                     case 10: {
-                        dc.drawBitmap(starX,starY, myBitmap6);
-                        dc.drawBitmap(starX + 40,starY, myBitmap6);
-                        dc.drawBitmap(starX + 80,starY, myBitmap6);
-                        dc.drawBitmap(starX + 120,starY, myBitmap6);
-                        dc.drawBitmap(starX + 160,starY, myBitmap6);
+                        dc.drawBitmap(starX,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 40,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 80,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 120,starY, starBlackBitmap);
+                        dc.drawBitmap(starX + 160,starY, starBlackBitmap);
                         break;
                     }
                     default: {
@@ -228,7 +275,12 @@ class forKidsView extends WatchUi.DataField {
                     }
                 }
             } else {
-                dc.drawBitmap(starX +80,starY -5, myBitmap7);
+                if( getBackgroundColor() == Graphics.COLOR_BLACK) {
+                    dc.drawBitmap(starX +80,starY -5, myBitmap15);
+                }
+                else {
+                    dc.drawBitmap(starX +80,starY -5, myBitmap7);
+                }
             }
         }    
     }

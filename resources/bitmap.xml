@@ -1,10 +1,18 @@
 <resources> 
     <bitmap id="snail" filename="drawables/snail.png" />
+    <bitmap id="snailw" filename="drawables/snailw.png" />
     <bitmap id="turtle" filename="drawables/turtle.png" />
+    <bitmap id="turtlew" filename="drawables/turtlew.png" />
     <bitmap id="rabbit" filename="drawables/rabbit.png" />
+    <bitmap id="rabbitw" filename="drawables/rabbitw.png" />
     <bitmap id="rocket" filename="drawables/rocket.png" />
+    <bitmap id="rocketw" filename="drawables/rocketw.png" />
     <bitmap id="sleep" filename="drawables/sleep.png" />
+    <bitmap id="sleepw" filename="drawables/sleepw.png" />
     <bitmap id="star" filename="drawables/star.png" />
+    <bitmap id="starw" filename="drawables/starw.png" />
     <bitmap id="starBlack" filename="drawables/starBlack.png" />
+    <bitmap id="starBlackw" filename="drawables/starBlackw.png" />
     <bitmap id="trophy" filename="drawables/trophy.png" />
+    <bitmap id="trophyw" filename="drawables/trophyw.png" />
 </resources>
