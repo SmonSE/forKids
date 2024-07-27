@@ -17,8 +17,8 @@ class forKidsApp extends Application.AppBase {
     }
 
     //! Return the initial view of your application here
-    function getInitialView() as Array<Views or InputDelegates>? {
-        return [ new forKidsView() ] as Array<Views or InputDelegates>;
+    function getInitialView() {
+        return [ new forKidsView() ];
     }
 
 }
